@@ -2,3 +2,4 @@
 cdn.db
 node_modules
 .DS_STORE
+.idea/**/*

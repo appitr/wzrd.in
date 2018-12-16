@@ -23,6 +23,22 @@ module.exports = function install(env, module, cb) {
     cwd: 'node_modules/' + module
   });
 
+  npmInstallPeers = env.spawn('npm-install-peers', [], {
+    cwd: 'node_modules/' + module
+  });
+
+  gatherOutputs('npm-install-peers', npmInstallPeers, function (err, data) {
+    if (err) return cb(err);
+
+    env.log.info('npm-install-peers: installed `' + module + '`.');
+    data.stdout.split('\n').forEach(function (l) {
+      env.log.info('npm-install-peers: stdout - ' + l);
+    });
+    data.stderr.split('\n').forEach(function (l) {
+      env.log.info('npm-install-peers: stderr - ' + l);
+    });
+  });
+
   gatherOutputs('npm', npm, function (err, data) {
     if (err) return cb(err);
 
