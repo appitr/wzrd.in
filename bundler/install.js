@@ -14,7 +14,6 @@ module.exports = function install(env, module, cb) {
 
   npm = env.spawn('npm', [ 'install',
     '--ignore-scripts',
-    '--production',
     '--no-package-lock',
     '--no-audit',
     '--registry', registryURL,

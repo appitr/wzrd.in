@@ -3,3 +3,4 @@ cdn.db
 node_modules
 .DS_STORE
 .idea/**/*
+package-lock.json
